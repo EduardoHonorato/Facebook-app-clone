@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import styled from 'styled-components/native'
+import {StatusBar, ScrollView} from 'react-native'
+import AppBar from './components/AppBar'
+import ToolBar from './components/ToolBar'
+import UsersStorys from './components/UsersStorys'
+import Feed from './components/Feed'
+import Menu from './components/Menu'
 
-export default function App() {
+const Container = styled.SafeAreaView`
+flex:1
+`;
+
+
+const App  = () =>{
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <>
+    <StatusBar backgroundColor='#fff' barStyle='dark-content'/>
+    <Container>
+      <ScrollView>
+        <AppBar/>
+        <Menu/>
+        <ToolBar/>
+        <UsersStorys/>
+        <Feed/>
+      </ScrollView>
+    </Container>
+
+    </>
+  
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
